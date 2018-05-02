@@ -27,7 +27,7 @@
 #include <string>
 
 // for granting special access to hWnd only for Graphics constructor
-class HWNDKey
+class CLASS_DECLSPEC HWNDKey
 {
 	friend Graphics::Graphics( HWNDKey& );
 public:
@@ -39,7 +39,7 @@ protected:
 	HWND hWnd = nullptr;
 };
 
-class MainWindow : public HWNDKey
+class CLASS_DECLSPEC MainWindow : public HWNDKey
 {
 public:
 	class Exception : public ChiliException
@@ -75,7 +75,7 @@ public:
 	Keyboard kbd;
 	Mouse mouse;
 private:
-	static constexpr wchar_t* wndClassName = L"Chili DirectX Framework Window";
+	static constexpr wchar_t wndClassName[] = L"Chili DirectX Framework Window";
 	HINSTANCE hInst = nullptr;
 	std::wstring args;
 };

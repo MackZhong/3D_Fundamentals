@@ -1,11 +1,12 @@
 #pragma once
+#include "ChiliWin.h"
 
 #include "Pipeline.h"
 #include "DefaultVertexShader.h"
 #include "DefaultGeometryShader.h"
 
 // solid color attribute not interpolated
-class SolidEffect
+class  CLASS_DECLSPEC SolidEffect
 {
 public:
 	// the vertex type that will be input into the pipeline

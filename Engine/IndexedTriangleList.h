@@ -1,4 +1,5 @@
 #pragma once
+#include "ChiliWin.h"
 
 #include <vector>
 #include "Vec3.h"
@@ -6,6 +7,7 @@
 #include "Miniball.h"
 #include <fstream>
 #include <cctype>
+#include <sstream>
 
 template<class T>
 class IndexedTriangleList

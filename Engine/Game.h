@@ -19,36 +19,41 @@
 *	along with The Chili DirectX Framework.  If not, see <http://www.gnu.org/licenses/>.  *
 ******************************************************************************************/
 #pragma once
+#include "ChiliWin.h"
 
 #include "Graphics.h"
 #include <memory>
 #include <vector>
 #include "Scene.h"
 #include "FrameTimer.h"
+#include "Graphics.h"
+#include "MainWindow.h"
 
-class Game
+class CLASS_DECLSPEC Game
 {
 public:
-	Game( class MainWindow& wnd );
+	Game( MainWindow& wnd ) : wnd(wnd), gfx(wnd) {	};
 	Game( const Game& ) = delete;
 	Game& operator=( const Game& ) = delete;
-	void Go();
+	void Go() {
+		gfx.BeginFrame();
+		UpdateModel();
+		ComposeFrame();
+		gfx.EndFrame();
+	};
+	Graphics& Graph() { return gfx; }
+	MainWindow& Window() { return wnd; }
+
 private:
-	void ComposeFrame();
-	void UpdateModel();
+	virtual void ComposeFrame() = 0;
+	virtual void UpdateModel() = 0;
 	/********************************/
 	/*  User Functions              */
-	void CycleScenes();
-	void ReverseCycleScenes();
-	void OutputSceneName() const;
 	/********************************/
 private:
 	MainWindow& wnd;
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-	FrameTimer ft;
-	std::vector<std::unique_ptr<Scene>> scenes;
-	std::vector<std::unique_ptr<Scene>>::iterator curScene;
 	/********************************/
 };

@@ -50,7 +50,7 @@ void Surface::PutPixelAlpha( unsigned int x,unsigned int y,Color c )
 	PutPixel( x,y,{ rsltRed,rsltGreen,rsltBlue } );
 }
 
-Surface Surface::FromFile( const std::wstring & name )
+Surface CLASS_DECLSPEC Surface::FromFile( const std::wstring & name )
 {
 	unsigned int width = 0;
 	unsigned int height = 0;
@@ -139,7 +139,7 @@ void Surface::Save( const std::wstring & filename ) const
 	}
 }
 
-void Surface::Copy( const Surface & src )
+void CLASS_DECLSPEC Surface::Copy( const Surface & src )
 {
 	assert( width == src.width );
 	assert( height == src.height );

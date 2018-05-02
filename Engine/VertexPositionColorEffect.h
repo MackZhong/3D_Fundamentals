@@ -1,10 +1,10 @@
 #pragma once
-
+#include "ChiliWin.h"
 #include "Pipeline.h"
 #include "DefaultGeometryShader.h"
 
 // color gradient effect between vertices determined by vertex position
-class VertexPositionColorEffect
+class CLASS_DECLSPEC VertexPositionColorEffect
 {
 public:
 	// the vertex type that will be input into the pipeline

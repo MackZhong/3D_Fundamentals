@@ -18,9 +18,12 @@
 *	You should have received a copy of the GNU General Public License					  *
 *	along with The Chili DirectX Framework.  If not, see <http://www.gnu.org/licenses/>.  *
 ******************************************************************************************/
+#include "stdafx.h"
 #include "MainWindow.h"
-#include "Game.h"
+#include "PolygonGame.h"
 #include "ChiliException.h"
+
+#pragma comment(lib, "engine.lib")
 
 int WINAPI wWinMain( HINSTANCE hInst,HINSTANCE,LPWSTR pArgs,INT )
 {
@@ -29,7 +32,7 @@ int WINAPI wWinMain( HINSTANCE hInst,HINSTANCE,LPWSTR pArgs,INT )
 		MainWindow wnd( hInst,pArgs );		
 		try
 		{
-			Game theGame( wnd );
+			PolygonGame theGame( wnd );
 			while( wnd.ProcessMessage() )
 			{
 				theGame.Go();

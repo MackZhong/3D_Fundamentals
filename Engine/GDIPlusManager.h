@@ -21,7 +21,7 @@
 #pragma once
 #include "ChiliWin.h"
 
-class GDIPlusManager
+class CLASS_DECLSPEC GDIPlusManager
 {
 public:
 	GDIPlusManager();

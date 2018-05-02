@@ -78,7 +78,8 @@ private:
 	{
 		// generate triangle from 3 vertices using gs
 		// and send to post-processing
-		PostProcessTriangleVertices( effect.gs( v0,v1,v2,triangle_index ) );
+		auto ps = effect.gs( v0,v1,v2,triangle_index );
+		PostProcessTriangleVertices( ps );
 	}
 	// vertex post-processing function
 	// perform perspective and viewport transformations
@@ -238,6 +239,7 @@ private:
 	}
 public:
 	Effect effect;
+
 private:
 	Graphics& gfx;
 	PubeScreenTransformer pst;

@@ -1,11 +1,11 @@
 #pragma once
-
+#include "ChiliWin.h"
 #include "Pipeline.h"
 #include "DefaultVertexShader.h"
 #include "DefaultGeometryShader.h"
 
 // color gradient effect between vertices
-class VertexColorEffect
+class CLASS_DECLSPEC VertexColorEffect
 {
 public:
 	// the vertex type that will be input into the pipeline

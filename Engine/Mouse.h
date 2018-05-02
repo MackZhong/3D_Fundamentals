@@ -19,10 +19,11 @@
  *	along with The Chili DirectX Framework.  If not, see <http://www.gnu.org/licenses/>.  *
  ******************************************************************************************/
 #pragma once
+#include "ChiliWin.h"
 #include <queue>
 #include "Vec2.h"
 
-class Mouse
+class CLASS_DECLSPEC Mouse
 {
 	friend class MainWindow;
 public:

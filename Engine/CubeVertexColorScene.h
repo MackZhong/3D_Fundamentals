@@ -1,4 +1,5 @@
 #pragma once
+#include "ChiliWin.h"
 
 #include "Scene.h"
 #include "Cube.h"
@@ -6,7 +7,7 @@
 #include "Pipeline.h"
 #include "VertexColorEffect.h"
 
-class CubeVertexColorScene : public Scene
+class CLASS_DECLSPEC CubeVertexColorScene : public Scene
 {
 public:
 	typedef Pipeline<VertexColorEffect> Pipeline;

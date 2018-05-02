@@ -1,4 +1,5 @@
 #pragma once
+#include "ChiliWin.h"
 
 #include "Scene.h"
 #include "Cube.h"
@@ -6,7 +7,7 @@
 #include "Pipeline.h"
 #include "SolidEffect.h"
 
-class CubeSolidScene : public Scene
+class CLASS_DECLSPEC CubeSolidScene : public Scene
 {
 public:
 	typedef Pipeline<SolidEffect> Pipeline;

@@ -28,7 +28,7 @@
 #include <memory>
 
 
-class Surface
+class CLASS_DECLSPEC Surface
 {
 public:
 	class Exception : public ChiliException

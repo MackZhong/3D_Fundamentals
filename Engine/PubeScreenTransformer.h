@@ -1,8 +1,9 @@
 #pragma once
+#include "ChiliWin.h"
 #include "Vec3.h"
 #include "Graphics.h"
 
-class PubeScreenTransformer
+class CLASS_DECLSPEC PubeScreenTransformer
 {
 public:
 	PubeScreenTransformer()

@@ -1,4 +1,5 @@
 #pragma once
+#include "ChiliWin.h"
 
 #include "Scene.h"
 #include "Cube.h"
@@ -7,7 +8,7 @@
 #include "TextureEffect.h"
 
 // scene demonstrating skinned cube
-class CubeSkinScene : public Scene
+class CLASS_DECLSPEC CubeSkinScene : public Scene
 {
 public:
 	typedef Pipeline<TextureEffect> Pipeline;

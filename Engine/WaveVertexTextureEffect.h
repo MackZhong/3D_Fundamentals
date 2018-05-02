@@ -1,9 +1,9 @@
 #pragma once
-
+#include "ChiliWin.h"
 #include "Pipeline.h"
 #include "DefaultGeometryShader.h"
 
-class WaveVertexTextureEffect
+class CLASS_DECLSPEC WaveVertexTextureEffect
 {
 public:
 	class Vertex

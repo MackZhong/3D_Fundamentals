@@ -1,11 +1,11 @@
 #pragma once
-
+#include "ChiliWin.h"
 #include "Pipeline.h"
 #include "DefaultVertexShader.h"
 #include "DefaultGeometryShader.h"
 
 // flat shading with vertex normals
-class VertexFlatEffect
+class CLASS_DECLSPEC VertexFlatEffect
 {
 public:
 	// the vertex type that will be input into the pipeline

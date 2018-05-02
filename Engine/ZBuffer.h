@@ -1,9 +1,9 @@
 #pragma once
-
+#include "ChiliWin.h"
 #include <limits>
 #include <cassert>
 
-class ZBuffer
+class CLASS_DECLSPEC ZBuffer
 {
 public:
 	ZBuffer( int width,int height )

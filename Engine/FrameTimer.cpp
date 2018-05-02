@@ -1,13 +1,13 @@
 #include "FrameTimer.h"
-
+#include <chrono>
 using namespace std::chrono;
 
-FrameTimer::FrameTimer()
+CLASS_DECLSPEC FrameTimer::FrameTimer()
 {
 	last = steady_clock::now();
 }
 
-float FrameTimer::Mark()
+CLASS_DECLSPEC float FrameTimer::Mark()
 {
 	const auto old = last;
 	last = steady_clock::now();

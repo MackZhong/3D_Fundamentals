@@ -1,4 +1,5 @@
 #pragma once
+#include "ChiliWin.h"
 
 #include <vector>
 #include <array>
@@ -6,7 +7,7 @@
 #include "Vec3.h"
 #include "IndexedTriangleList.h"
 
-class Plane
+class CLASS_DECLSPEC Plane
 {
 public:
 	template<class V>

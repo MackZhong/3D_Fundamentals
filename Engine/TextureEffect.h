@@ -1,11 +1,11 @@
 #pragma once
-
+#include "ChiliWin.h"
 #include "Pipeline.h"
 #include "DefaultVertexShader.h"
 #include "DefaultGeometryShader.h"
 
 // basic texture effect
-class TextureEffect
+class CLASS_DECLSPEC TextureEffect
 {
 public:
 	// the vertex type that will be input into the pipeline

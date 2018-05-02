@@ -19,10 +19,11 @@
  *	along with The Chili DirectX Framework.  If not, see <http://www.gnu.org/licenses/>.  *
  ******************************************************************************************/
 #pragma once
+#include "ChiliWin.h"
 #include <queue>
 #include <bitset>
 
-class Keyboard
+class CLASS_DECLSPEC Keyboard
 {
 	friend class MainWindow;
 public:

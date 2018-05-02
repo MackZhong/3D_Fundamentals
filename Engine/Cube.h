@@ -1,9 +1,10 @@
 #pragma once
+#include "ChiliWin.h"
 
 #include "Vec3.h"
 #include "IndexedTriangleList.h"
 
-class Cube
+class CLASS_DECLSPEC Cube
 {
 public:
 	template<class V>

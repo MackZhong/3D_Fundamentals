@@ -1,15 +1,12 @@
 #pragma once
-
-#pragma once
-
-#pragma once
+#include "ChiliWin.h"
 
 #include "Scene.h"
 #include "Plane.h"
 #include "Mat3.h"
 #include "WaveVertexTextureEffect.h"
 
-class VertexWaveScene : public Scene
+class CLASS_DECLSPEC VertexWaveScene : public Scene
 {
 public:
 	typedef Pipeline<WaveVertexTextureEffect> Pipeline;

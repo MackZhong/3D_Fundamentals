@@ -19,10 +19,11 @@
 *	along with The Chili DirectX Framework.  If not, see <http://www.gnu.org/licenses/>.  *
 ******************************************************************************************/
 #pragma once
-
+#include "ChiliWin.h"
+#include "Vec2.h"
 #include "Vec3.h"
 
-class Color
+class CLASS_DECLSPEC Color
 {
 public:
 	unsigned int dword;
