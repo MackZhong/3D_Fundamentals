@@ -1,35 +1,60 @@
 #pragma once
 #include "ChiliWin.h"
-
+#include <vector>
 #include "Vec3.h"
 #include "IndexedTriangleList.h"
+#include "IndexedLineList.h"
 
 class CLASS_DECLSPEC Cube
 {
+private:
+	std::vector<Vec3> vertices;
+
+public:
+	Cube(float size) {
+		const float side = size / 2.0f;
+		vertices.emplace_back(-side, -side, -side);
+		vertices.emplace_back(side, -side, -side);
+		vertices.emplace_back(-side, side, -side);
+		vertices.emplace_back(side, side, -side);
+		vertices.emplace_back(-side, -side, side);
+		vertices.emplace_back(side, -side, side);
+		vertices.emplace_back(-side, side, side);
+		vertices.emplace_back(side, side, side);
+	}
+	IndexedLineList3F GetLines() const {
+		return { vertices,
+		{
+			0, 1, 1, 3, 3, 2, 2, 0,
+			0, 4, 1, 5, 3, 7, 2, 6,
+			4, 5, 5, 7, 7, 6, 6, 4}
+		};
+	}
+
 public:
 	template<class V>
-	static IndexedTriangleList<V> GetPlain( float size = 1.0f )
+	static IndexedTriangleList<V> GetPlain(float size = 1.0f)
 	{
 		const float side = size / 2.0f;
 
 		std::vector<Vec3> vertices;
 
-		vertices.emplace_back( -side,-side,-side ); // 0
-		vertices.emplace_back( side,-side,-side ); // 1
-		vertices.emplace_back( -side,side,-side ); // 2
-		vertices.emplace_back( side,side,-side ); // 3
-		vertices.emplace_back( -side,-side,side ); // 4
-		vertices.emplace_back( side,-side,side ); // 5
-		vertices.emplace_back( -side,side,side ); // 6
-		vertices.emplace_back( side,side,side ); // 7
+		vertices.emplace_back(-side, -side, -side); // 0
+		vertices.emplace_back(side, -side, -side); // 1
+		vertices.emplace_back(-side, side, -side); // 2
+		vertices.emplace_back(side, side, -side); // 3
+		vertices.emplace_back(-side, -side, side); // 4
+		vertices.emplace_back(side, -side, side); // 5
+		vertices.emplace_back(-side, side, side); // 6
+		vertices.emplace_back(side, side, side); // 7
 
-		std::vector<V> verts( vertices.size() );
-		for( size_t i = 0; i < vertices.size(); i++ )
+		std::vector<V> verts(vertices.size());
+		for (size_t i = 0; i < vertices.size(); i++)
 		{
 			verts[i].pos = vertices[i];
 		}
 		return{
-			std::move( verts ),{
+			std::move(verts),{
 				0,2,1, 2,3,1,
 				1,3,5, 3,7,5,
 				2,6,3, 3,6,7,
@@ -40,44 +65,44 @@ public:
 		};
 	}
 	template<class V>
-	static IndexedTriangleList<V> GetPlainIndependentFaces( float size = 1.0f )
+	static IndexedTriangleList<V> GetPlainIndependentFaces(float size = 1.0f)
 	{
 		const float side = size / 2.0f;
 
 		std::vector<Vec3> vertices;
 
-		vertices.emplace_back( -side,-side,-side ); // 0 near side
-		vertices.emplace_back( side,-side,-side ); // 1
-		vertices.emplace_back( -side,side,-side ); // 2
-		vertices.emplace_back( side,side,-side ); // 3
-		vertices.emplace_back( -side,-side,side ); // 4 far side
-		vertices.emplace_back( side,-side,side ); // 5
-		vertices.emplace_back( -side,side,side ); // 6
-		vertices.emplace_back( side,side,side ); // 7
-		vertices.emplace_back( -side,-side,-side ); // 8 left side
-		vertices.emplace_back( -side,side,-side ); // 9
-		vertices.emplace_back( -side,-side,side ); // 10
-		vertices.emplace_back( -side,side,side ); // 11
-		vertices.emplace_back( side,-side,-side ); // 12 right side
-		vertices.emplace_back( side,side,-side ); // 13
-		vertices.emplace_back( side,-side,side ); // 14
-		vertices.emplace_back( side,side,side ); // 15
-		vertices.emplace_back( -side,-side,-side ); // 16 bottom side
-		vertices.emplace_back( side,-side,-side ); // 17
-		vertices.emplace_back( -side,-side,side ); // 18
-		vertices.emplace_back( side,-side,side ); // 19
-		vertices.emplace_back( -side,side,-side ); // 20 top side
-		vertices.emplace_back( side,side,-side ); // 21
-		vertices.emplace_back( -side,side,side ); // 22
-		vertices.emplace_back( side,side,side ); // 23
+		vertices.emplace_back(-side, -side, -side); // 0 near side
+		vertices.emplace_back(side, -side, -side); // 1
+		vertices.emplace_back(-side, side, -side); // 2
+		vertices.emplace_back(side, side, -side); // 3
+		vertices.emplace_back(-side, -side, side); // 4 far side
+		vertices.emplace_back(side, -side, side); // 5
+		vertices.emplace_back(-side, side, side); // 6
+		vertices.emplace_back(side, side, side); // 7
+		vertices.emplace_back(-side, -side, -side); // 8 left side
+		vertices.emplace_back(-side, side, -side); // 9
+		vertices.emplace_back(-side, -side, side); // 10
+		vertices.emplace_back(-side, side, side); // 11
+		vertices.emplace_back(side, -side, -side); // 12 right side
+		vertices.emplace_back(side, side, -side); // 13
+		vertices.emplace_back(side, -side, side); // 14
+		vertices.emplace_back(side, side, side); // 15
+		vertices.emplace_back(-side, -side, -side); // 16 bottom side
+		vertices.emplace_back(side, -side, -side); // 17
+		vertices.emplace_back(-side, -side, side); // 18
+		vertices.emplace_back(side, -side, side); // 19
+		vertices.emplace_back(-side, side, -side); // 20 top side
+		vertices.emplace_back(side, side, -side); // 21
+		vertices.emplace_back(-side, side, side); // 22
+		vertices.emplace_back(side, side, side); // 23
 
-		std::vector<V> verts( vertices.size() );
-		for( size_t i = 0; i < vertices.size(); i++ )
+		std::vector<V> verts(vertices.size());
+		for (size_t i = 0; i < vertices.size(); i++)
 		{
 			verts[i].pos = vertices[i];
 		}
 		return{
-			std::move( verts ),{
+			std::move(verts),{
 				0,2, 1,    2,3,1,
 				4,5, 7,    4,7,6,
 				8,10, 9,  10,11,9,
@@ -88,10 +113,10 @@ public:
 		};
 	}
 	template<class V>
-	static IndexedTriangleList<V> GetIndependentFacesNormals( float size = 1.0f )
+	static IndexedTriangleList<V> GetIndependentFacesNormals(float size = 1.0f)
 	{
 		// first generate cube vertex positions (independent faces)
-		auto cube = GetPlainIndependentFaces<V>( size );
+		auto cube = GetPlainIndependentFaces<V>(size);
 
 		// then for each vertex, add the normal (determined by inspection of cube)
 		//vertices.emplace_back( -side,-side,-side ); // 0 near side
@@ -146,10 +171,10 @@ public:
 		return cube;
 	}
 	template<class V>
-	static IndexedTriangleList<V> GetSkinned( float size = 1.0f )
+	static IndexedTriangleList<V> GetSkinned(float size = 1.0f)
 	{
 		const float side = size / 2.0f;
-		const auto ConvertTexCoord = []( float u,float v )
+		const auto ConvertTexCoord = [](float u, float v)
 		{
 			return Vec2{ (u + 1.0f) / 3.0f,v / 4.0f };
 		};
@@ -157,44 +182,44 @@ public:
 		std::vector<Vec3> vertices;
 		std::vector<Vec2> tc;
 
-		vertices.emplace_back( -side,-side,-side ); // 0
-		tc.emplace_back( ConvertTexCoord( 1.0f,0.0f ) );
-		vertices.emplace_back( side,-side,-side ); // 1
-		tc.emplace_back( ConvertTexCoord( 0.0f,0.0f ) );
-		vertices.emplace_back( -side,side,-side ); // 2
-		tc.emplace_back( ConvertTexCoord( 1.0f,1.0f ) );
-		vertices.emplace_back( side,side,-side ); // 3
-		tc.emplace_back( ConvertTexCoord( 0.0f,1.0f ) );
-		vertices.emplace_back( -side,-side,side ); // 4
-		tc.emplace_back( ConvertTexCoord( 1.0f,3.0f ) );
-		vertices.emplace_back( side,-side,side ); // 5
-		tc.emplace_back( ConvertTexCoord( 0.0f,3.0f ) );
-		vertices.emplace_back( -side,side,side ); // 6
-		tc.emplace_back( ConvertTexCoord( 1.0f,2.0f ) );
-		vertices.emplace_back( side,side,side ); // 7
-		tc.emplace_back( ConvertTexCoord( 0.0f,2.0f ) );
-		vertices.emplace_back( -side,-side,-side ); // 8
-		tc.emplace_back( ConvertTexCoord( 1.0f,4.0f ) );
-		vertices.emplace_back( side,-side,-side ); // 9
-		tc.emplace_back( ConvertTexCoord( 0.0f,4.0f ) );
-		vertices.emplace_back( -side,-side,-side ); // 10
-		tc.emplace_back( ConvertTexCoord( 2.0f,1.0f ) );
-		vertices.emplace_back( -side,-side,side ); // 11
-		tc.emplace_back( ConvertTexCoord( 2.0f,2.0f ) );
-		vertices.emplace_back( side,-side,-side ); // 12
-		tc.emplace_back( ConvertTexCoord( -1.0f,1.0f ) );
-		vertices.emplace_back( side,-side,side ); // 13
-		tc.emplace_back( ConvertTexCoord( -1.0f,2.0f ) );
+		vertices.emplace_back(-side, -side, -side); // 0
+		tc.emplace_back(ConvertTexCoord(1.0f, 0.0f));
+		vertices.emplace_back(side, -side, -side); // 1
+		tc.emplace_back(ConvertTexCoord(0.0f, 0.0f));
+		vertices.emplace_back(-side, side, -side); // 2
+		tc.emplace_back(ConvertTexCoord(1.0f, 1.0f));
+		vertices.emplace_back(side, side, -side); // 3
+		tc.emplace_back(ConvertTexCoord(0.0f, 1.0f));
+		vertices.emplace_back(-side, -side, side); // 4
+		tc.emplace_back(ConvertTexCoord(1.0f, 3.0f));
+		vertices.emplace_back(side, -side, side); // 5
+		tc.emplace_back(ConvertTexCoord(0.0f, 3.0f));
+		vertices.emplace_back(-side, side, side); // 6
+		tc.emplace_back(ConvertTexCoord(1.0f, 2.0f));
+		vertices.emplace_back(side, side, side); // 7
+		tc.emplace_back(ConvertTexCoord(0.0f, 2.0f));
+		vertices.emplace_back(-side, -side, -side); // 8
+		tc.emplace_back(ConvertTexCoord(1.0f, 4.0f));
+		vertices.emplace_back(side, -side, -side); // 9
+		tc.emplace_back(ConvertTexCoord(0.0f, 4.0f));
+		vertices.emplace_back(-side, -side, -side); // 10
+		tc.emplace_back(ConvertTexCoord(2.0f, 1.0f));
+		vertices.emplace_back(-side, -side, side); // 11
+		tc.emplace_back(ConvertTexCoord(2.0f, 2.0f));
+		vertices.emplace_back(side, -side, -side); // 12
+		tc.emplace_back(ConvertTexCoord(-1.0f, 1.0f));
+		vertices.emplace_back(side, -side, side); // 13
+		tc.emplace_back(ConvertTexCoord(-1.0f, 2.0f));
 
-		std::vector<V> verts( vertices.size() );
-		for( size_t i = 0; i < vertices.size(); i++ )
+		std::vector<V> verts(vertices.size());
+		for (size_t i = 0; i < vertices.size(); i++)
 		{
 			verts[i].pos = vertices[i];
 			verts[i].t = tc[i];
 		}
 
 		return{
-			std::move( verts ),{
+			std::move(verts),{
 				0,2,1,   2,3,1,
 				4,8,5,   5,8,9,
 				2,6,3,   3,6,7,

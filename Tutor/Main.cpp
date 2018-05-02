@@ -20,7 +20,7 @@
 ******************************************************************************************/
 #include "stdafx.h"
 #include "MainWindow.h"
-#include "PolygonGame.h"
+#include "CubeGame.h"
 #include "ChiliException.h"
 
 #pragma comment(lib, "engine.lib")
@@ -32,7 +32,7 @@ int WINAPI wWinMain( HINSTANCE hInst,HINSTANCE,LPWSTR pArgs,INT )
 		MainWindow wnd( hInst,pArgs );		
 		try
 		{
-			PolygonGame theGame( wnd );
+			CubeGame theGame( wnd );
 			while( wnd.ProcessMessage() )
 			{
 				theGame.Go();

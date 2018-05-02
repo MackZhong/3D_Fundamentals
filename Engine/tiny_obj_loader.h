@@ -313,7 +313,7 @@ namespace tinyobj {
 	/// directory.
 	/// 'triangulate' is optional, and used whether triangulate polygon face in .obj
 	/// or not.
-	bool LoadObj(attrib_t *attrib, std::vector<shape_t> *shapes,
+	bool __stdcall LoadObj(attrib_t *attrib, std::vector<shape_t> *shapes,
 		std::vector<material_t> *materials, std::string *err,
 		const char *filename, const char *mtl_basedir = NULL,
 		bool triangulate = true);
@@ -333,7 +333,7 @@ namespace tinyobj {
 	/// std::istream for materials.
 	/// Returns true when loading .obj become success.
 	/// Returns warning and error message into `err`
-	bool LoadObj(attrib_t *attrib, std::vector<shape_t> *shapes,
+	bool __stdcall LoadObj(attrib_t *attrib, std::vector<shape_t> *shapes,
 		std::vector<material_t> *materials, std::string *err,
 		std::istream *inStream, MaterialReader *readMatFn = NULL,
 		bool triangulate = true);
@@ -1443,7 +1443,7 @@ namespace tinyobj {
 		return true;
 	}
 
-	bool LoadObj(attrib_t *attrib, std::vector<shape_t> *shapes,
+	bool __stdcall LoadObj(attrib_t *attrib, std::vector<shape_t> *shapes,
 		std::vector<material_t> *materials, std::string *err,
 		const char *filename, const char *mtl_basedir, bool triangulate) {
 		attrib->vertices.clear();
@@ -1472,7 +1472,7 @@ namespace tinyobj {
 			triangulate);
 	}
 
-	bool LoadObj(attrib_t *attrib, std::vector<shape_t> *shapes,
+	bool __stdcall LoadObj(attrib_t *attrib, std::vector<shape_t> *shapes,
 		std::vector<material_t> *materials, std::string *err,
 		std::istream *inStream, MaterialReader *readMatFn /*= NULL*/,
 		bool triangulate) {

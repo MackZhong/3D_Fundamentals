@@ -21,10 +21,7 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="FlagGame.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="PolygonGame.h">
+    <ClInclude Include="CubeGame.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,13 +29,10 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="FlagGame.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="PolygenGame.cpp">
+    <ClCompile Include="CubeGame.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
